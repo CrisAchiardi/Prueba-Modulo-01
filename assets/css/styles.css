@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* https://utopia.fyi/ para calcular espacios fluidos, se pueden definir los paramétros mínimos y máximos para que la calcuradora  genere el CSS.*/
+
+:root {
+    --color-dark: #161616;
+    --color-light: #f3f3f3;
+    /* Creando variables de color hacemos más eficiente la gestión del sistema de diseño, al cambiar el color acá afectará a todos los elementos que usen la variable */
+    --font-base: 'Space Mono', monospace;
+    /* Acá lo mismo pero definiendo las fonts, nos podría tocar un diseño que use distintas fuentes para dsitintas cosas */
+    --space-3xs: clamp(0.31rem, calc(0.31rem + 0.00vw), 0.31rem);
+    --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
+    --space-xs: clamp(0.75rem,0.69rem + 0.29vw,0.9375rem);
+    --space-s: clamp(1rem,0.92rem + 0.39vw,1.25rem);
+    --space-m: clamp(1.5rem,1.38rem + 0.58vw,1.875rem);
+    --space-l: clamp(2rem,1.84rem + 0.78vw,2.5rem);
+    --space-xl: clamp(3rem,2.77rem + 1.17vw,3.75rem);
+    --space-2xl: clamp(4rem,3.69rem + 1.55vw,5rem);
+    --space-3xl: clamp(6rem,5.53rem + 2.33vw,7.5rem);
+    --space-xs-s: clamp(0.75rem,0.59rem + 0.78vw,1.25rem);
+    --space-s-m: clamp(1rem,0.73rem + 1.36vw,1.875rem);
+    --space-m-l: clamp(1.5rem,1.19rem + 1.55vw,2.5rem);
+    --space-l-xl: clamp(2rem,1.46rem + 2.72vw,3.75rem);
+    --space-l-2xl: clamp(2rem,1.07rem + 4.66vw,5rem);
+    --space-xl-2xl: clamp(3rem,2.38rem + 3.11vw,5rem);
+    --space-2xl-3xl: clamp(4rem,2.91rem + 5.44vw,7.5rem);
+    /* space lo generé en utopia y sirve para gestionar los espacios entre los elementos */
+    --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
+    --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1.00rem);
+    --step-0: clamp(1rem,0.92rem + 0.39vw,1.25rem);
+    --step-1: clamp(1.1875rem,1.01rem + 0.87vw,1.75rem);
+    --step-2: clamp(1.4375rem,1.11rem + 1.65vw,2.5rem);
+    --step-3: clamp(1.75rem,1.19rem + 2.82vw,3.5625rem);
+    --step-4: clamp(2.0625rem,1.15rem + 4.56vw,5rem);
+    --step-5: clamp(2.5rem,1.08rem + 7.09vw,7.0625rem);
+    --step-6: clamp(3rem,0.84rem + 10.78vw,9.9375rem);
+    /* steps también lo generé con utopia para crear tipografías fluidas, prueba ajustando el tamaño del navegador */
+  }
+
+/* estoy intentando usar la metodología CUBE CSS, puedes leer en https://buildexcellentwebsit.es/ donde hay varios recursos, en el heaser hay un link a un video de Andy Bell donde explica como armó el sitio */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    font-family: var(--font-base);
+    background: var(--color-dark);
+    color: var(--color-light);
+    line-height: 1.4;
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+h1 {
+    font-weight: 700;
+    max-width: 20ch;
+}
+
+h4,h5 {
+    font-weight: 300;
+}
+
+h4 + h5 {
+    margin-block-start: 1rem;
+}
+
+p {
+    font-size: var(--step--1);
+}
+
+p + p {
+    margin-block-start: 1rem;
+}
+/* https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/ */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-block: .5rem;
+    margin-inline: 1rem;
+    padding-block-end: 1rem;
+    border-bottom: 1px solid var(--color-light);
+    font-size: var(--step--1);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-light);
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-m);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+section + section {
+    margin-block-start: var(--space-3xl);
+}
+
+.wrapper {
+    display: flex;
+    margin-block-start: var(--space-l);
+    flex-wrap: wrap;
+}
+
+.container {
+    width: 100%;
+    margin-block: var(--space-xs);
+}
+
+.info {
+    width: 20%;
+    padding-inline-end: 1rem;
+}
+
+.description {
+    width: 80%;
+    padding-inline-start: 1rem;
+}
+
+.ed-span {
+    font-size: var(--step-0);
+    font-weight: 700;
+    white-space:nowrap;
+}
+
+#year {
+    font-weight: 300;
+}
+
+/* .skills-container {
+    margin-block-start: var(--space-s);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skills {
+    font-size: var(--step--2);
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    margin-block-end: .5rem;
+    margin-inline-end: .5rem;
+} */
+
+#bg-fixed {
+    background-attachment: fixed;
+}
+
+.bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation .2s infinite;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+  }
+
+  @keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+    }
