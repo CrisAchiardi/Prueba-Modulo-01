@@ -102,6 +102,10 @@ a {
     color: var(--color-light);
 }
 
+a:hover {
+    text-decoration:line-through;
+}
+
 main {
     max-width: 1000px;
     margin: 0 auto;
