@@ -127,6 +127,12 @@ section + section {
     flex-wrap: wrap;
 }
 
+@media (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+    }
+}
+
 .container {
     width: 100%;
     margin-block: var(--space-xs);
@@ -137,9 +143,23 @@ section + section {
     padding-inline-end: 1rem;
 }
 
+@media (max-width: 600px) {
+    .info {
+        width: 100%;
+        padding: 0;
+    }
+}
+
 .description {
     width: 80%;
     padding-inline-start: 1rem;
+}
+
+@media (max-width: 600px) {
+    .description {
+        width: 100%;
+        padding: 0;
+    }
 }
 
 .ed-span {
