@@ -125,6 +125,7 @@ section + section {
 }
 
 footer {
+    text-align: center;
     margin-block-start: var(--space-l);
     margin-block-end: .5rem;
     margin-inline: 1rem;
