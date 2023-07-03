@@ -125,6 +125,7 @@ section + section {
 }
 
 footer {
+    text-align: center;
     margin-block-start: var(--space-l);
     margin-block-end: .5rem;
     margin-inline: 1rem;
@@ -258,7 +259,7 @@ footer {
     bottom: -50%;
     width: 200%;
     height: 200vh;
-    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background: transparent url('../img/noise-transparent.png') repeat 0 0;
     background-repeat: repeat;
     animation: bg-animation .2s infinite;
     opacity: 1;
